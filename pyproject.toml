@@ -1,0 +1,22 @@
+[project]
+name = "nbnets"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dash>=3.0.4",
+    "dash-bootstrap-components>=2.0.3",
+    "gymnasium>=1.1.1",
+    "imageio>=2.37.0",
+    "ipython>=9.3.0",
+    "mock>=5.2.0",
+    "networkx>=3.5",
+    "numpy>=2.3.0",
+    "plotly>=6.1.2",
+    "protobuf>=6.31.1",
+    "pytest>=8.4.0",
+    "pyyaml>=6.0.2",
+    "scikit-learn>=1.7.0",
+    "zmq>=0.0.0",
+]

@@ -1,0 +1,17 @@
+
+interfaces:
+  xor1:  # Interface name here, this is used in defining the respective mesh name
+    type: xor  # This maps to a dictionary that resolves to a particular interface class
+    source: xor
+    mesh_defs:  # Certain interfaces like nist have inputs and outputs so multiple definitions for meshes can be provided
+      xor1:  # This is the name of the mesh and should match the interface definition, this usually overlaps with the interface name
+        static: False  # The interface instantiates the mesh definition and any options here overwrite the mesh def
+        output_mesh_ids:
+          - basal
+
+meshes:
+  basal:
+    config:
+      mesh_type: 3  # BASAL_GANGLIA
+      starting_ta: 70
+      max_ta: 90

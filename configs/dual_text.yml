@@ -1,0 +1,30 @@
+# This is a config for running two text interfaces piped into a third mesh
+
+interfaces:
+  text_char:
+    type: character
+    source: "training_data/wordlist.10000"
+    mesh_defs:
+      text_char:
+        static: False
+        output_mesh_ids:
+          - mesh3
+  text_bert:
+    type: bert
+    source: "training_data/wordlist.10000"
+    mesh_defs:
+      text_bert:
+        static: False
+        ta: 2
+        output_mesh_ids:
+          - mesh3
+
+meshes:
+  mesh3:
+    config:
+      starting_ta: 50
+      max_ta: 100
+
+
+
+

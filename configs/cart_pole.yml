@@ -1,0 +1,20 @@
+interfaces:
+  gym1:  # Interface name here, this is used in defining the respective mesh name
+    type: gym  # This maps to a dictionary that resolves to a particular interface class
+    source: cart_pole
+    mesh_defs:  # Certain interfaces like nist have inputs and outputs so multiple definitions for meshes can be provided
+      gym1:  # This is the name of the mesh and should match the interface definition, this usually overlaps with the interface name
+        static: False  # The interface instantiates the mesh definition and any options here overwrite the mesh def
+        output_mesh_ids:
+          - basal
+        max_n_count: 100
+        abstraction_limit: 2
+        max_ta: 200
+
+meshes:
+  basal:
+    config:
+      mesh_type: 3  # BASAL_GANGLIA
+      starting_ta: 50
+      max_ta: 200
+      number_dimensions: 3

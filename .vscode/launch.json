@@ -1,0 +1,100 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "NIST",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--config", "configs/mNIST.yml"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Sim Load",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "-g", "nist",
+                "--load", "--state",  "/vols/NFM_state.pkl"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "text simulation",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--config", "configs/character.yml"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "xor",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--config", "configs/xor.yml", "-r", "1",
+                "-D",  "debug.json"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "cart",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--config", "configs/cart_pole.yml"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "config",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "main.py",
+            "args": [
+                "--config", "configs/xor.yml"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Demo Frontend",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "demo_web.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "mNIST Demo Frontend",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "demo_web.py",
+            "console": "integratedTerminal",
+            "env": {
+                "DASH_URL_BASE_PATHNAME": "/nist-trained/"
+              }
+        },
+        {
+            "name": "Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        }
+
+    ],
+    "compounds": [
+        {
+            "name": "text and demo",
+            "configurations": ["Demo Frontend", "text simulation"]
+        }
+    ]
+}

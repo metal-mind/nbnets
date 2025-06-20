@@ -1,0 +1,8 @@
+interfaces:
+  text_char:
+    type: character
+    source: "training_data/wordlist_rand500.txt"
+    mesh_defs:
+      text_char:
+        static: False
+        duplicate_count_threshold: 20

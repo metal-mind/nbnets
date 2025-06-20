@@ -1,0 +1,63 @@
+
+{
+    "files.trimTrailingWhitespace": true,
+
+    // Python settings
+    "python.testing.pytestEnabled": true,
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    "todo-tree.tree.scanMode": "open files",
+
+    "python.analysis.typeCheckingMode": "off",
+    "editor.rulers": [
+        120
+    ],
+
+
+    // Spelling settings
+    "cSpell.ignoreWords": [
+        "pconn",
+        "pidx",
+        "plast"
+    ],
+    "cSpell.words": [
+        "abstr",
+        "astype",
+        "connectionless",
+        "hebbian",
+        "heterosynaptic",
+        "homosynaptic",
+        "Hopfield",
+        "idxs",
+        "metaplasticity",
+        "mispredicted",
+        "misprediction",
+        "mispredictions",
+        "mispredictive",
+        "mispredictor",
+        "mispredictors",
+        "networkx",
+        "neuralmodel",
+        "Neuro",
+        "neuroblock",
+        "neuromesh",
+        "neuromodulator",
+        "ngraph",
+        "nonpredicted",
+        "Overprediction",
+        "plasticities",
+        "Plotly",
+        "prdct",
+        "pretrain",
+        "protobuf",
+        "rebalancing",
+        "recalc",
+        "stim",
+        "subnetworks",
+        "subpattern",
+        "unabstracted",
+        "Underprediction",
+        "underpredictions"
+    ],
+    "C_Cpp.workspaceSymbols": "Just My Code"
+
+}

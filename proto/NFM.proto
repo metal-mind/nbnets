@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+
+message NFMmessage {
+  optional int32 cmd = 1;
+  optional string stimulations = 2;
+  optional bytes net_data = 3;
+  optional int32 count = 4;
+  optional int32 value = 5;
+  optional string interface_id = 6;
+  optional string mesh_id = 7;
+  optional bytes pickle_data = 8;
+  optional string interface_data = 9;
+  optional string string_data = 10;
+
+  enum Command {
+    REQUEST_NET_DATA = 0;
+    RESPONSE_NET_DATA = 1;
+    ACK = 2;
+    STEP = 3;
+    RUN = 4;
+    PAUSE = 5;
+    LOCK_INTERFACES = 6;
+    FLUSH_INTERFACES = 7;
+    INSERT_TO_INTERFACE = 8;
+    SLEEP_AND_PAUSE = 9;
+    UNUSED = 10;
+    MAKE_STATIC = 11;
+    MAKE_UNSTATIC = 12;
+    SLEEP = 13;
+    SET_TA = 14;
+    SET_RANK = 15;
+    ADD_NEURON = 16;
+    SAVE_STATE = 17;
+    LOAD_STATE = 18;
+    LOAD_PRESET = 19;
+    GET_SUBSTRATE = 20;
+    REQUEST_NGRAPH_DATA = 21;
+  }
+
+}
+
+message NFMDataChunk {
+    bytes content = 1;
+}
+
+service NFMService {
+    rpc dispatch(NFMmessage) returns (NFMmessage) {}
+    rpc dispatch_stream_data(NFMmessage) returns (stream NFMDataChunk) {}
+}
