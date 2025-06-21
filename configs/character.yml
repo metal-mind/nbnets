@@ -1,7 +1,7 @@
 interfaces:
   text_char:
     type: character
-    source: "training_data/wordlist_rand500.txt"
+    source: "training_data/wordlist.10000"
     mesh_defs:
       text_char:
         static: False

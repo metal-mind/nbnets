@@ -149,6 +149,7 @@ class NeuroMesh:
         self.suppressed_n_ids = []  # Tracks which neurons fired but got suppressed, cleared each step
         self.triggered = []  # and the neurons that are being fired this round
         self.ta = n_mesh_def.starting_ta
+        self.error_window_delay = n_mesh_def.starting_ta
         self.rank = 2
         self.max_rank = n_mesh_def.max_rank
         self.base_rank = 2
@@ -295,7 +296,7 @@ class NeuroMesh:
         time_since_rank_increase = self.time_step - self.rank_increased_step
         time_since_consolidation = self.time_step - self.last_consolidation_step
         time_since_network_increase = self.time_step - self.highest_num_neuron_increased_step
-        if time_since_consolidation > 100000 and time_since_rank_increase > 10000:
+        if time_since_consolidation > 10000 and time_since_rank_increase > 10000:
             if self.rank < self.max_rank:
                 self.rank += 2.0
             self.rank_increased_step = self.time_step
@@ -1088,7 +1089,7 @@ class NeuroMesh:
 
         for connection in axon_connections:
             match connection.nt_type:
-                case NTType.ABN | NTType.FWD | NTType.BWD | NTType.BXT:
+                case NTType.ABN | NTType.FWD | NTType.BWD:
                     self.stimulate(connection)
                 case NTType.EXT:
                     external_connections.append(connection)

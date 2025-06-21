@@ -104,8 +104,8 @@ class CharacterInterface(TextInterface):
     Sensory interface that provides a text to neural activity translation
     """
 
-    def __init__(self, interface_id, prefix=True, interface_speed=10):
-        super().__init__(interface_id)
+    def __init__(self, interface_id, source_str=None, prefix=True, interface_speed=10):
+        super().__init__(interface_id, source_str=source_str)
         self.interface_speed = interface_speed
         input_n_mesh = NeuroMeshDefinition(n_mesh_id=interface_id, starting_ta=interface_speed, max_ta=70)
         self.delimiters = [" ", "\n"]
@@ -164,10 +164,10 @@ class CharacterInterface(TextInterface):
 
 
 class BERTInterface(TextInterface):
-    def __init__(self, interface_id, interface_speed=20, vocab_file=DEFAULT_VOCAB_FILE):
-        super().__init__(interface_id)
-        self.interface_speed = interface_speed
+    def __init__(self, interface_id, source_str=None, interface_speed=20, vocab_file=DEFAULT_VOCAB_FILE):
         self.vocab_file = vocab_file
+        super().__init__(interface_id, source_str=source_str)
+        self.interface_speed = interface_speed
         starting_ta = 2 * interface_speed
         self.default_space_delay = 4
         max_ta = interface_speed * (self.default_space_delay - 1)
